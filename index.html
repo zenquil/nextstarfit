@@ -1388,52 +1388,67 @@ footer{background:#0B1119;color:#B8C1CE}
   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
 </a>
 
-<div class="modal-overlay" id="modalOverlay">
-  <div class="modal" role="dialog" aria-modal="true" aria-label="Rezervare">
-    <button class="modal-close" id="modalClose" aria-label="Închide">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
-    </button>
-    <span class="label">Rezervare rapidă</span>
-    <h3 id="modalTitle">Programează o vizită gratuită</h3>
-    <p style="font-size:14px;color:var(--muted);margin-bottom:18px">Alege o zi și un interval, iar noi confirmăm pe email în maximum 24h.</p>
+<div class="modal-overlay" id="modalOverlay"> <div class="modal" role="dialog" aria-modal="true" aria-label="Rezervare"> <button class="modal-close" id="modalClose" aria-label="Închide"> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"> <path d="M6 6l12 12M18 6L6 18"/> </svg> </button>
 
-    <form id="modalForm">
-      <div class="form-grid">
-        <div class="form-row">
-          <div class="field">
-            <label for="mName">Nume complet *</label>
-            <input type="text" id="mName" placeholder="Nume Prenume" required>
-            <div class="field-hint" id="mNameHint">Nume și prenume.</div>
-          </div>
-          <div class="field">
-            <label for="mEmail">Email *</label>
-            <input type="email" id="mEmail" placeholder="nume@email.com" required>
-            <div class="field-hint" id="mEmailHint">Pentru confirmare.</div>
-          </div>
-        </div>
+<span class="label">Rezervare rapidă</span>  
+<h3 id="modalTitle">Programează o vizită gratuită</h3>  
+<p style="font-size:14px;color:var(--muted);margin-bottom:18px">  
+  Alege o zi și un interval, iar noi confirmăm pe email în maximum 24h.  
+</p>
 
-        <div class="field">
-          <label>Interval preferat</label>
-          <div class="time-slots" id="timeSlots">
-            <button class="time-slot" type="button">08:00</button>
-            <button class="time-slot" type="button">11:00</button>
-            <button class="time-slot" type="button">14:00</button>
-            <button class="time-slot" type="button">17:00</button>
-            <button class="time-slot" type="button">19:00</button>
-            <button class="time-slot" type="button">20:30</button>
-            <button class="time-slot" type="button">07:00</button>
-            <button class="time-slot" type="button">12:30</button>
-          </div>
-        </div>
+<form id="modalForm" action="https://api.web3forms.com/submit" method="POST" novalidate>  
+  <input type="hidden" name="access_key" value="eb9933c7-cfc6-4de9-b04d-bbb77348387c">  
+  <input type="hidden" name="subject" value="Solicitare vizită gratuită - NEXTSTARFIT">  
+  <input type="hidden" name="from_name" value="Website NEXTSTARFIT">  
+  <input type="hidden" name="redirect" value="false">  
+  <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 
-        <button class="btn btn-primary btn-block" type="submit">Trimite solicitarea</button>
+  <div class="form-grid">  
+    <div class="form-row">  
+      <div class="field">  
+        <label for="mName">Nume complet *</label>  
+        <input type="text" id="mName" name="name" placeholder="Nume Prenume" required>  
+        <div class="field-hint" id="mNameHint">Scrie numele și prenumele.</div>  
       </div>
-      <div class="form-msg" id="modalMsg"></div>
-    </form>
-  </div>
-</div>
 
-<div id="toastWrap"></div>
+      <div class="field">  
+        <label for="mEmail">Email *</label>  
+        <input type="email" id="mEmail" name="email" placeholder="nume@email.com" required>  
+        <div class="field-hint" id="mEmailHint">Pentru confirmare.</div>  
+      </div>  
+    </div>
+
+    <div class="field">  
+      <label for="mMessage">Mesajul tău</label>  
+      <textarea id="mMessage" name="message" placeholder="Spune-ne dacă vrei doar o vizită sau informații despre abonament."></textarea>  
+      <div class="field-hint" id="mMessageHint">Opțional, dar fără limbaj nepotrivit.</div>  
+    </div>
+
+    <div class="field">  
+      <label>Interval preferat</label>  
+      <input type="hidden" name="interval_preferat" id="mTime">  
+      <div class="time-slots" id="timeSlots">  
+        <button class="time-slot" type="button">07:00</button>  
+        <button class="time-slot" type="button">08:00</button>  
+        <button class="time-slot" type="button">11:00</button>  
+        <button class="time-slot" type="button">12:30</button>  
+        <button class="time-slot" type="button">14:00</button>  
+        <button class="time-slot" type="button">17:00</button>  
+        <button class="time-slot" type="button">19:00</button>  
+        <button class="time-slot" type="button">20:30</button>  
+      </div>  
+      <div class="field-hint" id="mTimeHint">Alege un interval preferat.</div>  
+    </div>
+
+    <button class="btn btn-primary btn-block" type="submit" id="modalSubmit">  
+      Trimite solicitarea  
+    </button>  
+  </div>
+
+  <div class="form-msg" id="modalMsg"></div>  
+</form>  
+
+</div> </div> <div id="toastWrap"></div> <script> (function () { const modalForm = document.getElementById('modalForm'); const modalMsg = document.getElementById('modalMsg'); const modalSubmit = document.getElementById('modalSubmit'); const mName = document.getElementById('mName'); const mEmail = document.getElementById('mEmail'); const mMessage = document.getElementById('mMessage'); const mTime = document.getElementById('mTime'); const mNameHint = document.getElementById('mNameHint'); const mEmailHint = document.getElementById('mEmailHint'); const mMessageHint = document.getElementById('mMessageHint'); const mTimeHint = document.getElementById('mTimeHint'); const timeButtons = document.querySelectorAll('#timeSlots .time-slot'); const bannedWords = [ 'prost','proasta','prostule','proasto', 'idiot','idioata','idiotule', 'bou','boi','nesimtit','nesimtita', 'dracu','dracului','naiba', 'cacat','căcat','cct', 'pula','pulă','pizda','pizdă','muie', 'fut','futut','fute','futu-ti','futuți', 'mortii','morții','matii','mă-tii' ]; function normalizeText(text) { return text .toLowerCase() .normalize('NFD') .replace(/[\u0300-\u036f]/g, '') .replace(/[^a-zA-Z0-9\s-]/g, ' ') .replace(/\s+/g, ' ') .trim(); } function containsBadWords(text) { const normalized = normalizeText(text); return bannedWords.some(word => normalized.includes(normalizeText(word))); } function validateFullName(name) { const cleaned = name.trim().replace(/\s+/g, ' '); if (cleaned.length < 5) return false; if (containsBadWords(cleaned)) return false; const parts = cleaned.split(' ').filter(Boolean); if (parts.length < 2) return false; return parts.every(part => /^[A-Za-zĂÂÎȘŞȚŢăâîșşțţ\-]+$/.test(part) && part.length >= 2); } function validateEmail(email) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()); } function validateMessage(message) { if (!message.trim()) return true; return !containsBadWords(message); } function setError(input, hintEl, message) { if (input) input.classList.add('invalid'); if (input) input.classList.remove('valid'); hintEl.textContent = message; hintEl.classList.add('error'); hintEl.classList.remove('ok'); } function setSuccess(input, hintEl, message) { if (input) input.classList.remove('invalid'); if (input) input.classList.add('valid'); hintEl.textContent = message; hintEl.classList.remove('error'); hintEl.classList.add('ok'); } function clearState(input, hintEl, defaultMessage) { if (input) { input.classList.remove('invalid'); input.classList.remove('valid'); } hintEl.textContent = defaultMessage; hintEl.classList.remove('error'); hintEl.classList.remove('ok'); } timeButtons.forEach(btn => { btn.addEventListener('click', () => { timeButtons.forEach(b => b.classList.remove('selected')); btn.classList.add('selected'); mTime.value = btn.textContent.trim(); mTimeHint.textContent = 'Interval selectat: ' + mTime.value; mTimeHint.classList.remove('error'); mTimeHint.classList.add('ok'); }); }); mName.addEventListener('blur', () => { if (!mName.value.trim()) { clearState(mName, mNameHint, 'Scrie numele și prenumele.'); return; } if (!validateFullName(mName.value)) { setError(mName, mNameHint, 'Trebuie să scrii nume și prenume reale. Nu este permis un singur nume sau limbaj vulgar.'); } else { setSuccess(mName, mNameHint, 'Nume valid.'); } }); mEmail.addEventListener('blur', () => { if (!mEmail.value.trim()) { clearState(mEmail, mEmailHint, 'Pentru confirmare.'); return; } if (!validateEmail(mEmail.value)) { setError(mEmail, mEmailHint, 'Email invalid.'); } else { setSuccess(mEmail, mEmailHint, 'Email valid.'); } }); mMessage.addEventListener('blur', () => { if (!mMessage.value.trim()) { clearState(mMessage, mMessageHint, 'Opțional, dar fără limbaj nepotrivit.'); return; } if (!validateMessage(mMessage.value)) { setError(mMessage, mMessageHint, 'Mesajul conține limbaj nepotrivit și nu poate fi trimis.'); } else { setSuccess(mMessage, mMessageHint, 'Mesaj valid.'); } }); modalForm.addEventListener('submit', async function(e) { e.preventDefault(); modalMsg.className = 'form-msg'; modalMsg.style.display = 'none'; modalMsg.textContent = ''; let isValid = true; if (!validateFullName(mName.value)) { setError(mName, mNameHint, 'Trebuie să scrii nume și prenume reale. Nu este permis un singur nume sau limbaj vulgar.'); isValid = false; } else { setSuccess(mName, mNameHint, 'Nume valid.'); } if (!validateEmail(mEmail.value)) { setError(mEmail, mEmailHint, 'Email invalid.'); isValid = false; } else { setSuccess(mEmail, mEmailHint, 'Email valid.'); } if (!validateMessage(mMessage.value)) { setError(mMessage, mMessageHint, 'Mesajul conține limbaj nepotrivit și nu poate fi trimis.'); isValid = false; } else if (mMessage.value.trim()) { setSuccess(mMessage, mMessageHint, 'Mesaj valid.'); } else { clearState(mMessage, mMessageHint, 'Opțional, dar fără limbaj nepotrivit.'); } if (!mTime.value.trim()) { mTimeHint.textContent = 'Te rugăm să alegi un interval preferat.'; mTimeHint.classList.add('error'); mTimeHint.classList.remove('ok'); isValid = false; } if (!isValid) return; modalSubmit.disabled = true; modalSubmit.textContent = 'Se trimite...'; try { const formData = new FormData(modalForm); const response = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData }); const result = await response.json(); if (result.success) { modalMsg.className = 'form-msg success'; modalMsg.style.display = 'block'; modalMsg.textContent = 'Solicitarea a fost trimisă cu succes. Vei primi confirmare pe email.'; modalForm.reset(); mTime.value = ''; timeButtons.forEach(b => b.classList.remove('selected')); clearState(mName, mNameHint, 'Scrie numele și prenumele.'); clearState(mEmail, mEmailHint, 'Pentru confirmare.'); clearState(mMessage, mMessageHint, 'Opțional, dar fără limbaj nepotrivit.'); mTimeHint.textContent = 'Alege un interval preferat.'; mTimeHint.classList.remove('error', 'ok'); } else { modalMsg.className = 'form-msg error'; modalMsg.style.display = 'block'; modalMsg.textContent = 'A apărut o eroare la trimitere. Încearcă din nou.'; } } catch (error) { modalMsg.className = 'form-msg error'; modalMsg.style.display = 'block'; modalMsg.textContent = 'Nu s-a putut trimite formularul. Verifică conexiunea și încearcă din nou.'; } finally { modalSubmit.disabled = false; modalSubmit.textContent = 'Trimite solicitarea'; } }); })(); </script>
 
 <script>
 (function(){
