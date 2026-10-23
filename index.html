@@ -1273,19 +1273,30 @@ footer{background:#0B1119;color:#B8C1CE}
     <span class="label">Rezervare rapidă</span>
     <h3 id="modalTitle">Programează o vizită gratuită</h3>
     <p style="font-size:14px;color:var(--muted);margin-bottom:18px">Alege o zi și un interval, iar noi confirmăm pe email în maximum 24h.</p>
-    <form id="modalForm">
+    <form id="modalForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+      <input type="hidden" name="access_key" value="eb9933c7-cfc6-4de9-b04d-bbb77348387c">
+      <input type="hidden" name="subject" id="mSubject" value="Programare vizită gratuită - NEXTSTARFIT">
+      <input type="hidden" name="from_name" value="Website NEXTSTARFIT">
+      <input type="hidden" name="solicitare" id="mRequest" value="Programează o vizită gratuită">
+      <input type="hidden" name="interval_preferat" id="mSlot" value="">
+      <input type="hidden" name="message" id="mMessage" value="">
+      <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
       <div class="form-grid">
         <div class="form-row">
           <div class="field">
             <label for="mName">Nume complet *</label>
-            <input type="text" id="mName" placeholder="Nume Prenume" required>
+            <input type="text" id="mName" name="name" placeholder="Nume Prenume" autocomplete="name" required>
             <div class="field-hint" id="mNameHint">Nume și prenume.</div>
           </div>
           <div class="field">
             <label for="mEmail">Email *</label>
-            <input type="email" id="mEmail" placeholder="nume@email.com" required>
+            <input type="email" id="mEmail" name="email" placeholder="nume@email.com" autocomplete="email" required>
             <div class="field-hint" id="mEmailHint">Pentru confirmare.</div>
           </div>
+        </div>
+        <div class="field">
+          <label for="mDate">Ziua preferată</label>
+          <input type="date" id="mDate" name="zi_preferata">
         </div>
         <div class="field">
           <label>Interval preferat</label>
@@ -1540,6 +1551,8 @@ document.addEventListener('DOMContentLoaded', function(){
       PremiumElevi: 'Alege Premium Elevi'
     };
     modalTitle.textContent = titles[id] || titles.vizita;
+    document.getElementById('mRequest').value = titles[id] || titles.vizita;
+    document.getElementById('mSubject').value = (id === 'vizita' ? 'Programare vizită gratuită' : 'Solicitare: ' + (titles[id] || id)) + ' - NEXTSTARFIT';
     modalOverlay.classList.add('open');
     modalMsg.style.display = 'none';
     modalMsg.className = 'form-msg';
@@ -1562,25 +1575,68 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   });
 
+  // Time slots
+  var mSlot = document.getElementById('mSlot');
+  document.querySelectorAll('#timeSlots .time-slot').forEach(function(b){
+    b.addEventListener('click', function(){
+      var wasSel = b.classList.contains('selected');
+      document.querySelectorAll('#timeSlots .time-slot').forEach(function(x){ x.classList.remove('selected'); });
+      if(!wasSel){ b.classList.add('selected'); mSlot.value = b.textContent.trim(); } else { mSlot.value = ''; }
+    });
+  });
+
+  // Web3Forms helper
+  function sendToWeb3Forms(form){
+    var data = new FormData(form);
+    return fetch(form.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: data })
+      .then(function(r){ return r.json().then(function(j){ return { ok: r.ok && j.success, json: j }; }); });
+  }
+
   // Modal form submit
   modalForm.addEventListener('submit', function(e){
     e.preventDefault();
     var name = document.getElementById('mName').value.trim();
     var email = document.getElementById('mEmail').value.trim();
     var valid = true;
+    ['mName','mEmail'].forEach(function(id){ document.getElementById(id).classList.remove('invalid'); });
     if(!name){ document.getElementById('mName').classList.add('invalid'); document.getElementById('mNameHint').classList.add('error'); valid=false; }
     if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ document.getElementById('mEmail').classList.add('invalid'); document.getElementById('mEmailHint').classList.add('error'); valid=false; }
     if(!valid) return;
+
+    var date = document.getElementById('mDate').value;
+    document.getElementById('mMessage').value =
+      document.getElementById('mRequest').value +
+      '\nZiua preferată: ' + (date || 'nespecificată') +
+      '\nInterval preferat: ' + (mSlot.value || 'nespecificat');
+
+    var btn = modalForm.querySelector('button[type="submit"]');
+    var oldTxt = btn.textContent;
+    btn.disabled = true; btn.textContent = 'Se trimite...';
     modalMsg.style.display = 'none';
     modalMsg.className = 'form-msg';
-    // Simulate success
-    modalMsg.classList.add('success');
-    modalMsg.textContent = 'Solicitare trimisă cu succes! Îți confirmăm pe email în maximum 24h.';
-    modalMsg.style.display = 'block';
-    setTimeout(function(){
-      closeModal();
-      showToast('success', 'Solicitare trimisă!', 'Îți vom trimite confirmarea pe email în maximum 24h.');
-    }, 2000);
+
+    sendToWeb3Forms(modalForm).then(function(res){
+      if(res.ok){
+        modalMsg.classList.add('success');
+        modalMsg.textContent = 'Solicitare trimisă cu succes! Îți confirmăm pe email în maximum 24h.';
+        modalMsg.style.display = 'block';
+        modalForm.reset();
+        mSlot.value = '';
+        document.querySelectorAll('#timeSlots .time-slot').forEach(function(x){ x.classList.remove('selected'); });
+        setTimeout(function(){
+          closeModal();
+          showToast('success', 'Solicitare trimisă!', 'Îți vom trimite confirmarea pe email în maximum 24h.');
+        }, 1800);
+      } else {
+        throw new Error((res.json && res.json.message) || 'Eroare');
+      }
+    }).catch(function(){
+      modalMsg.classList.add('error');
+      modalMsg.textContent = 'Nu am putut trimite solicitarea. Încearcă din nou sau scrie-ne la nextstarfit@gmail.com.';
+      modalMsg.style.display = 'block';
+    }).then(function(){
+      btn.disabled = false; btn.textContent = oldTxt;
+    });
   });
 
   // Contact form
@@ -1599,10 +1655,24 @@ document.addEventListener('DOMContentLoaded', function(){
     if(!valid) return;
     formMsg.style.display = 'none';
     formMsg.className = 'form-msg';
-    formMsg.classList.add('success');
-    formMsg.textContent = 'Solicitare trimisă cu succes! Te scriem pe email în maximum 24h.';
-    formMsg.style.display = 'block';
-    contactForm.reset();
+    var cBtn = contactForm.querySelector('button[type="submit"]');
+    var cTxt = cBtn.textContent;
+    cBtn.disabled = true; cBtn.textContent = 'Se trimite...';
+    sendToWeb3Forms(contactForm).then(function(res){
+      if(res.ok){
+        formMsg.classList.add('success');
+        formMsg.textContent = 'Solicitare trimisă cu succes! Te scriem pe email în maximum 24h.';
+        contactForm.reset();
+      } else {
+        throw new Error('fail');
+      }
+    }).catch(function(){
+      formMsg.classList.add('error');
+      formMsg.textContent = 'Nu am putut trimite solicitarea. Încearcă din nou sau scrie-ne la nextstarfit@gmail.com.';
+    }).then(function(){
+      formMsg.style.display = 'block';
+      cBtn.disabled = false; cBtn.textContent = cTxt;
+    });
   });
 
   // Toast
