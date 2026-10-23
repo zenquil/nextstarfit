@@ -351,13 +351,22 @@ textarea{resize:vertical;min-height:110px}
 .cta-banner p{color:#B8C1CE;font-size:16px;margin-bottom:10px;position:relative}
 .cta-off{display:inline-block;background:var(--blue);color:#fff;font-family:var(--font-head);font-weight:900;font-style:italic;padding:8px 18px;border-radius:100px;margin-bottom:20px;position:relative;font-size:13px;letter-spacing:.06em}
 .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
-footer{background:#0B1119;color:#B8C1CE}
-.footer-top{padding:56px 0 0}
-.footer-main{max-width:1200px;margin:0 auto;padding:48px 22px 28px;display:grid;gap:36px}
-.footer-brand p{font-size:14.5px;line-height:1.7;margin:14px 0 18px;max-width:320px}
-.footer-col h4{color:#fff;font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px;font-family:var(--font-head)}
-.footer-col ul{display:grid;gap:11px}
-.footer-col a{font-size:14.5px;transition:.2s}
+footer{background:#080E16;color:#C5CDD9;font-weight:400}
+footer a,footer p,footer address,footer li{font-weight:400}
+.footer-top{padding:0}
+.footer-main{max-width:1200px;margin:0 auto;padding:40px 22px 40px;display:grid;gap:36px}
+.footer-brand p{font-size:13.5px;line-height:1.75;margin:22px 0 0;max-width:300px;color:#D5DBE5;line-height:1.75}
+.footer-brand .logo-name{font-size:21px}
+.footer-brand .logo-name .d{color:#fff}
+.footer-brand .logo-tag{color:#8B95A0;font-size:7px;margin-top:7px}
+.footer-brand .logo-tag .lt-line{width:22px;height:1.5px;background:#5C6B80}
+.footer-brand .logo-mark{filter:none;width:48px;height:45px}
+.footer-col h4{color:#fff;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px;font-family:var(--font-head)}
+.footer-col address{font-style:normal;font-size:13.5px;line-height:1.5;color:#C5CDD9}
+.footer-col address p{margin:0 0 20px}
+.footer-col address p:last-child{margin:0}
+.footer-col ul{display:grid;gap:8px;list-style:none;padding:0;margin:0}
+.footer-col a{font-size:13.5px;transition:.2s;color:#C5CDD9}
 .footer-col a:hover{color:var(--blue);padding-left:4px}
 .news-form{display:flex;gap:8px;margin-top:12px}
 .news-form input{flex:1;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:12px 14px;color:#fff;font-size:14px;outline:none;min-width:0}
@@ -365,7 +374,9 @@ footer{background:#0B1119;color:#B8C1CE}
 .news-form input:focus{border-color:var(--blue)}
 .news-form button{background:var(--blue);border:0;color:#fff;border-radius:10px;padding:0 18px;font-weight:700;cursor:pointer;transition:.25s;display:flex;align-items:center;justify-content:center}
 .news-form button:hover{background:var(--blue-dark)}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding:20px 22px;font-size:13px;color:#7E8A9C}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:22px 0;font-size:12px;color:#8793A6}
+.footer-bottom span{font-weight:400}
+.footer-bottom .tagline{letter-spacing:.04em;text-transform:uppercase}
 .footer-bottom .container{display:flex;flex-direction:column;gap:8px;align-items:center;justify-content:space-between;text-align:center}
 .modal-overlay{position:fixed;inset:0;background:rgba(7,11,17,.62);backdrop-filter:blur(6px);z-index:1500;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:.3s}
 .modal-overlay.open{opacity:1;visibility:visible}
@@ -419,7 +430,7 @@ footer{background:#0B1119;color:#B8C1CE}
 .nutri-top{grid-template-columns:380px 1fr}
 .testi-track{grid-template-columns:repeat(3,1fr)}
 .contact-grid{grid-template-columns:380px 1fr}
-.footer-main{grid-template-columns:1.3fr .8fr .8fr 1.1fr}
+.footer-main{grid-template-columns:1.6fr .95fr 1.1fr 1.1fr;gap:0}
 .footer-bottom .container{flex-direction:row;text-align:left}
 }
 @media(min-width:1100px){
@@ -1248,7 +1259,7 @@ footer{background:#0B1119;color:#B8C1CE}
       <div class="cta-banner reveal" id="gata">
         <span class="cta-off">30% REDUCERE LA ABONAMENT!</span>
         <h2>Gata de primul <em>antrenament?</em></h2>
-        <p>Programează o vizită gratuită, iar solicitarea va fi trimisă direct către NEXTSTARFIT.</p>
+        <p>Programează o vizită gratuită, iar solicitarea va fi trimisă direct prin Web3Forms către NEXTSTARFIT.</p>
         <div class="cta-actions">
           <button class="btn btn-primary" type="button" data-open-modal="vizita">Programează o vizită gratuită</button>
           <a href="mailto:nextstarfit@gmail.com" class="btn btn-secondary">Scrie-ne pe email</a>
@@ -1258,9 +1269,60 @@ footer{background:#0B1119;color:#B8C1CE}
   </section>
 </main>
 <footer>
-  <div class="footer-top">
+  <div class="footer-main">
+    <div class="footer-brand">
+      <a href="#acasa" class="logo" aria-label="NEXTSTARFIT Acasă">
+        <span class="logo-mark">
+          <svg width="48" height="45" viewBox="0 0 80 74" fill="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="lgFoot" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#4DB2FF"/>
+                <stop offset="1" stop-color="#0B7DDE"/>
+              </linearGradient>
+            </defs>
+            <path d="M40 4 L33.5 27.5 L6 30.5 L28.5 44.5 L19.5 69.5 L40 54" stroke="url(#lgFoot)" stroke-width="7.5" stroke-linejoin="round" stroke-linecap="round"/>
+            <path d="M40 4 L46.5 27.5 L74 30.5 L51.5 44.5 L60.5 69.5 L40 54" stroke="#8B95A0" stroke-width="7.5" stroke-linejoin="round" stroke-linecap="round"/>
+            <circle cx="50" cy="28.5" r="5.8" fill="#1290FF"/>
+            <path d="M31 51.5 C37 44.5 43.5 40 50 38 L55.5 36.5 L59.8 32.8 L58.8 25.5 C58.6 23.6 60 22.3 62 22.5 C64 22.7 64.8 24.2 65.4 26.5 L67.8 35 C68.4 37.8 66.8 40 64 40.8 L57.8 42.2 C56.3 46 52.8 49.5 47.5 52.6 C43.5 55 36 57.5 31 51.5 Z" fill="#1290FF"/>
+          </svg>
+        </span>
+        <span class="logo-text">
+          <span class="logo-name"><span class="d">NEXTSTAR</span><span class="b">FIT</span></span>
+          <span class="logo-tag"><span class="lt-line"></span>STRONGER TOGETHER<span class="lt-line"></span></span>
+        </span>
+      </a>
+      <p>Antrenamente moderne, nutriție personalizată și o comunitate care te încurajează să mergi mai departe.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Descoperă</h4>
+      <ul>
+        <li><a href="#despre">Despre noi</a></li>
+        <li><a href="#servicii">Servicii</a></li>
+        <li><a href="#abonamente">Abonamente</a></li>
+        <li><a href="#nutritie">Nutriție</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Comunitate</h4>
+      <ul>
+        <li><a href="#servicii">Program clase</a></li>
+        <li><a href="#testimoniale">Testimoniale</a></li>
+        <li><a href="#contact">Contact &amp; Vizită</a></li>
+        <li><a href="mailto:nextstarfit@gmail.com">nextstarfit@gmail.com</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Te așteptăm</h4>
+      <address>
+        <p>Strada Feroviarilor 37<br>012206 București</p>
+        <p>L–V 06:00–23:00<br>S 08:00–20:00 • D 09:00–18:00</p>
+      </address>
+    </div>
+  </div>
+  <div class="footer-bottom">
     <div class="container">
-      <div class="cta-banner reveal" id="gata">...</div>
+      <span>© 2026 NEXTSTARFIT. Toate drepturile rezervate.</span>
+      <span class="tagline">Stronger Together.</span>
     </div>
   </div>
 </footer>
