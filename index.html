@@ -105,14 +105,7 @@ header.scrolled{background:rgba(255,255,255,.97);border-bottom-color:var(--borde
 .stripes-bottom i{width:72px;height:110px;background:#fff;transform:skewX(-28deg);box-shadow:0 10px 30px rgba(0,0,0,.3)}
 .hero-grid-dark{display:grid;gap:0;align-items:stretch;position:relative;z-index:2}
 .hero-left{padding:56px 22px 48px;max-width:660px;position:relative}
-.hero-logo-big{display:flex;flex-direction:column;align-items:flex-start;margin-bottom:10px}
-.hero-logo-big .mark{width:100px;margin-bottom:10px;filter:drop-shadow(0 8px 22px rgba(18,144,255,.45));animation:markIn 1s cubic-bezier(.2,.8,.25,1) both}
 @keyframes markIn{from{opacity:0;transform:translateY(-18px) rotate(-10deg) scale(.85)}to{opacity:1;transform:none}}
-.hero-brand{font-family:var(--font-head);font-weight:900;font-style:italic;font-size:clamp(28px,5vw,44px);line-height:1;letter-spacing:-.02em}
-.hero-brand .w{color:#fff}
-.hero-brand .bl{color:var(--blue)}
-.hero-brand-sub{display:flex;align-items:center;gap:10px;margin-top:8px;font-size:11px;letter-spacing:.36em;font-weight:800;color:#CBD5E1}
-.hero-brand-sub::before,.hero-brand-sub::after{content:"";height:2px;width:42px;background:var(--blue);border-radius:2px;display:inline-block}
 .hero-h1{font-family:var(--font-head);font-weight:900;font-style:italic;color:#fff;font-size:clamp(40px,7vw,76px);line-height:.95;margin:18px 0 6px;text-transform:uppercase}
 .hero-h1 .word{display:inline-block;overflow:hidden;margin-right:.26em}
 .hero-h1 .word i{display:inline-block;font-style:italic;transform:translateY(105%);opacity:0;animation:wordUp .85s cubic-bezier(.2,.8,.25,1) forwards}
@@ -402,8 +395,19 @@ footer a,footer p,footer address,footer li{font-weight:400}
 #toTop{position:fixed;bottom:24px;left:24px;width:48px;height:48px;border-radius:50%;background:var(--blue);color:#fff;border:0;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-blue);opacity:0;visibility:hidden;transform:translateY(12px);transition:.3s;z-index:1200}
 #toTop.show{opacity:1;visibility:visible;transform:translateY(0)}
 #toTop:hover{background:var(--blue-dark)}
-#mailFloat{position:fixed;bottom:24px;right:24px;z-index:1190;width:56px;height:56px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-blue);transition:.25s}
+.mail-fab{position:fixed;bottom:24px;right:24px;z-index:1250;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+#mailFloat{width:56px;height:56px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-blue);transition:.25s;border:0;cursor:pointer;position:relative}
 #mailFloat:hover{transform:scale(1.08);background:var(--blue-dark)}
+#mailFloat:focus-visible{outline:3px solid rgba(18,144,255,.45);outline-offset:3px}
+#mailFloat svg{width:24px;height:24px;display:block}
+#mailFloat .dot{position:absolute;top:2px;right:2px;width:11px;height:11px;border-radius:50%;background:#22C55E;border:2px solid #fff}
+.mail-pop{width:280px;background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:0 20px 50px rgba(20,30,45,.18);padding:8px;display:grid;gap:4px;opacity:0;visibility:hidden;transform:translateY(10px) scale(.97);transform-origin:bottom right;transition:.22s}
+.mail-pop.open{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
+.mail-pop-item{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:transparent;border:0;border-radius:11px;padding:11px 12px;cursor:pointer;transition:.18s;text-decoration:none;color:inherit;font:inherit}
+.mail-pop-item:hover,.mail-pop-item:focus-visible{background:var(--blue-soft);outline:none}
+.mpi{width:36px;height:36px;border-radius:10px;background:var(--blue-light);color:var(--blue);display:flex;align-items:center;justify-content:center;flex:0 0 36px}
+.mail-pop-item strong{display:block;font-size:13.5px;font-weight:700;color:var(--dark);line-height:1.25}
+.mail-pop-item small{display:block;font-size:12px;color:var(--muted);line-height:1.35;word-break:break-word}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-d1{transition-delay:.1s}
@@ -690,16 +694,6 @@ footer a,footer p,footer address,footer li{font-weight:400}
     <div class="stripes-bottom"><i></i><i></i><i></i></div>
     <div class="hero-grid-dark">
       <div class="hero-left">
-        <div class="hero-logo-big">
-          <svg class="mark" viewBox="0 0 80 74" fill="none" aria-hidden="true">
-            <path d="M40 4 L33.5 27.5 L6 30.5 L28.5 44.5 L19.5 69.5 L40 54" stroke="#1290FF" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/>
-            <path d="M40 4 L46.5 27.5 L74 30.5 L51.5 44.5 L60.5 69.5 L40 54" stroke="#C7D0DB" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/>
-            <circle cx="50" cy="28.5" r="5.8" fill="#1290FF"/>
-            <path d="M31 51.5 C37 44.5 43.5 40 50 38 L55.5 36.5 L59.8 32.8 L58.8 25.5 C58.6 23.6 60 22.3 62 22.5 C64 22.7 64.8 24.2 65.4 26.5 L67.8 35 C68.4 37.8 66.8 40 64 40.8 L57.8 42.2 C56.3 46 52.8 49.5 47.5 52.6 C43.5 55 36 57.5 31 51.5 Z" fill="#1290FF"/>
-          </svg>
-        </div>
-        <div class="hero-brand"><span class="w">NEXTSTAR</span><span class="bl">FIT</span></div>
-        <div class="hero-brand-sub">STRONGER TOGETHER</div>
         <h1 class="hero-h1" id="heroH1"></h1>
         <div class="blue-line"></div>
         <div class="hero-promo"><span class="off">GRATUIT</span> PRIMUL ANTRENAMENT</div>
@@ -1005,7 +999,7 @@ footer a,footer p,footer address,footer li{font-weight:400}
           <button class="btn btn-dark btn-block" type="button" data-open-modal="PremiumElevi"><span class="btn-label">Alege Premium Elevi</span><span class="btn-price">600 lei / 1 lună</span></button>
         </div>
       </div>
-      <p style="text-align:center;margin-top:26px;font-size:13.5px;color:var(--muted)">Prețurile afișate sunt finale. Abonamentele de 3 luni și 6 luni au preț mai bun pe lună. Scrie-ne la <a href="/cdn-cgi/l/email-protection#a8c6cdd0dcdbdcc9dacec1dce8cfc5c9c1c486cbc7c5" style="color:var(--blue);font-weight:700"><span class="__cf_email__" data-cfemail="6d030815191e190c1f0b04192d0a000c0401430e0200">nextstarfit@gmail.com</span></a> pentru activare rapidă.</p>
+      <p style="text-align:center;margin-top:26px;font-size:13.5px;color:var(--muted)">Prețurile afișate sunt finale. Abonamentele de 3 luni și 6 luni au preț mai bun pe lună. Scrie-ne la <a href="/cdn-cgi/l/email-protection#58363d202c2b2c392a3e312c7e7b6e6c633f35393134763b3735" style="color:var(--blue);font-weight:700">nextstarfit&#64;gmail.com</a> pentru activare rapidă.</p>
     </div>
   </section>
   <section class="section" id="nutritie">
@@ -1472,7 +1466,7 @@ footer a,footer p,footer address,footer li{font-weight:400}
           <button class="faq-q" type="button">Cum mă înscriu la un abonament?
             <span class="plus">+</span>
           </button>
-          <div class="faq-a"><p>Alegi abonamentul și durata dorită (1, 3 sau 6 luni) și completezi formularul de contact, scrii la <a href="/cdn-cgi/l/email-protection#056b607d7176716477636c71456268646c692b666a68" style="color:var(--blue);font-weight:700"><span class="__cf_email__" data-cfemail="026c677a7671766370646b7642656f636b6e2c616d6f">nextstarfit@gmail.com</span></a> sau vii direct la recepție. Îți confirmăm în maximum 24h și primești evaluarea corporală gratuit la prima vizită.</p></div>
+          <div class="faq-a"><p>Alegi abonamentul și durata dorită (1, 3 sau 6 luni) și completezi formularul de contact, scrii la <a href="/cdn-cgi/l/email-protection#600e05181413140112060914464356545b070d01090c4e030f0d" style="color:var(--blue);font-weight:700">nextstarfit&#64;gmail.com</a> sau vii direct la recepție. Îți confirmăm în maximum 24h și primești evaluarea corporală gratuit la prima vizită.</p></div>
         </div>
         <div class="faq-item">
           <button class="faq-q" type="button">Ce include abonamentul Standard?
@@ -1490,7 +1484,7 @@ footer a,footer p,footer address,footer li{font-weight:400}
           <button class="faq-q" type="button">Pot veni la o vizită gratuită?
             <span class="plus">+</span>
           </button>
-          <div class="faq-a"><p>Da! Prima vizită + evaluarea corporală sunt gratuite. Completează formularul din popup sau scrie-ne la <a href="/cdn-cgi/l/email-protection#b3ddd6cbc7c0c7d2c1d5dac7f3d4ded2dadf9dd0dcde" style="color:var(--blue);font-weight:700"><span class="__cf_email__" data-cfemail="610f0419151215001307081521060c00080d4f020e0c">nextstarfit@gmail.com</span></a>.</p></div>
+          <div class="faq-a"><p>Da! Prima vizită + evaluarea corporală sunt gratuite. Completează formularul din popup sau scrie-ne la <a href="/cdn-cgi/l/email-protection#fb959e838f888f9a899d928fddd8cdcfc09c969a9297d5989496" style="color:var(--blue);font-weight:700">nextstarfit&#64;gmail.com</a>.</p></div>
         </div>
       </div>
     </div>
@@ -1508,13 +1502,13 @@ footer a,footer p,footer address,footer li{font-weight:400}
             <span class="ic">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
             </span>
-            <span><strong>Email — scrie-ne acum</strong><a class="big" href="/cdn-cgi/l/email-protection#305e5548444344514256594470575d51595c1e535f5d"><span class="__cf_email__" data-cfemail="6d030815191e190c1f0b04192d0a000c0401430e0200">nextstarfit@gmail.com</span></a><br><a href="/cdn-cgi/l/email-protection#147a716c6067607566727d60547379757d783a777b79"><span class="__cf_email__" data-cfemail="98f6fde0ecebecf9eafef1ecd8fff5f9f1f4b6fbf7f5">nextstarfit@gmail.com</span></a><span> — Toate solicitările online ajung direct pe emailul NEXTSTARFIT. Răspundem în maximum 24h.</span></span>
+            <span><strong>Email — scrie-ne acum</strong><a class="big" href="/cdn-cgi/l/email-protection#2e404b565a5d5a4f5c48475a080d181a1549434f4742004d4143">nextstarfit&#64;gmail.com</a><br><a href="/cdn-cgi/l/email-protection#533d362b2720273221353a277570656768343e323a3f7d303c3e">nextstarfit&#64;gmail.com</a><span> — Toate solicitările online ajung direct pe emailul NEXTSTARFIT. Răspundem în maximum 24h.</span></span>
           </div>
           <div class="info-card contact-highlight">
             <span class="ic">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
             </span>
-            <span><strong>Nutriționist dedicat</strong><a class="big" href="/cdn-cgi/l/email-protection#7719120f0304031605111e0337101a161e1b5914181a">Țecu Antonio</a><span>Nutriție sportivă • 8 ani experiență • planuri personalizate</span></span>
+            <span><strong>Nutriționist dedicat</strong><a class="big" href="/cdn-cgi/l/email-protection#b7d9d2cfc3c4c3d6c5d1dec3919481838cd0dad6dedb99d4d8da">Țecu Antonio</a><span>Nutriție sportivă • 8 ani experiență • planuri personalizate</span></span>
           </div>
           <div class="info-card">
             <span class="ic">
@@ -1531,7 +1525,7 @@ footer a,footer p,footer address,footer li{font-weight:400}
         </div>
         <div class="form-card reveal reveal-d1">
           <h3>Cere oferta ta personalizată</h3>
-          <p style="font-size:14px;color:var(--muted);margin-bottom:20px">Completează în 30 secunde. Solicitarea ajunge direct pe <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dab4bfa2aea9aebba8bcb3ae9abdb7bbb3b6f4b9b5b7">nextstarfit@gmail.com</a></strong>.</p>
+          <p style="font-size:14px;color:var(--muted);margin-bottom:20px">Completează în 30 secunde. Solicitarea ajunge direct pe <strong>nextstarfit&#64;gmail.com</strong>.</p>
           <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
             <input type="hidden" name="access_key" value="eb9933c7-cfc6-4de9-b04d-bbb77348387c">
             <input type="hidden" name="subject" value="Solicitare nouă - Abonament NEXTSTARFIT">
@@ -1596,10 +1590,10 @@ footer a,footer p,footer address,footer li{font-weight:400}
       <div class="cta-banner reveal" id="gata">
         <span class="cta-off">PRIMUL ANTRENAMENT E GRATUIT</span>
         <h2>Gata de primul <em>antrenament?</em></h2>
-        <p>Programează o vizită gratuită, iar solicitarea va fi trimisă direct către NEXTSTARFIT.</p>
+        <p>Programează o vizită gratuită, iar solicitarea va fi trimisă direct prin Web3Forms către NEXTSTARFIT.</p>
         <div class="cta-actions">
           <button class="btn btn-primary" type="button" data-open-modal="vizita">Programează o vizită gratuită</button>
-          <a href="/cdn-cgi/l/email-protection#a4cac1dcd0d7d0c5d6c2cdd0e4c3c9c5cdc88ac7cbc9" class="btn btn-secondary">Scrie-ne pe email</a>
+          <a href="/cdn-cgi/l/email-protection#e38d869b9790978291858a97c5c0d5d7d8848e828a8fcd808c8e" class="btn btn-secondary">Scrie-ne pe email</a>
         </div>
       </div>
     </div>
@@ -1645,7 +1639,7 @@ footer a,footer p,footer address,footer li{font-weight:400}
         <li><a href="#servicii">Program clase</a></li>
         <li><a href="#testimoniale">Testimoniale</a></li>
         <li><a href="#contact">Contact &amp; Vizită</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#85ebe0fdf1f6f1e4f7e3ecf1c5e2e8e4ece9abe6eae8"><span class="__cf_email__" data-cfemail="a3cdc6dbd7d0d7c2d1c5cad7e3c4cec2cacf8dc0ccce">nextstarfit@gmail.com</span></a></li>
+        <li><a href="/cdn-cgi/l/email-protection#29474c515d5a5d485b4f405d0f0a1f1d124e44484045074a4644">nextstarfit&#64;gmail.com</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -1718,7 +1712,26 @@ footer a,footer p,footer address,footer li{font-weight:400}
 </div>
 <div id="toastWrap"></div>
 <button id="toTop" aria-label="Înapoi sus">↑</button>
-<button id="mailFloat" aria-label="Email">✉</button>
+<div class="mail-fab" id="mailFab">
+  <div class="mail-pop" id="mailPop" role="menu" aria-label="Opțiuni de contact" aria-hidden="true">
+    <a class="mail-pop-item" role="menuitem" href="/cdn-cgi/l/email-protection#c1afa4b9b5b2b5a0b3a7a8b5e7e2f7f5faa6aca0a8adefa2aeacfeb2b4a3aba4a2b5fce7e2f3f1f7faafb5b3a4a3a0b3a4e4f3f18f84999592958093878895e7a3aea5b8fc92a0adb4b5e4f382e4f3f1a0e482f9e4f8f8e4f3f1b7b3a4a0e4f3f1aca0a8e4f3f1acb4adb5a4e4f3f1a5a4b5a0ada8a8e4f3f1a5a4b2b1b3a4e4f3f1a0a3aeafa0aca4afb5a4ef">
+      <span class="mpi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></span>
+      <span><strong>Trimite email</strong><small>nextstarfit&#64;gmail.com</small></span>
+    </a>
+    <button class="mail-pop-item" type="button" role="menuitem" data-open-modal="vizita">
+      <span class="mpi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span>
+      <span><strong>Scrie-ne din formular</strong><small>Răspundem în maximum 24h</small></span>
+    </button>
+    <button class="mail-pop-item" type="button" role="menuitem" id="mailCopy">
+      <span class="mpi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></span>
+      <span><strong>Copiază adresa</strong><small>nextstarfit&#64;gmail.com</small></span>
+    </button>
+  </div>
+  <button id="mailFloat" type="button" aria-label="Scrie-ne un email" aria-expanded="false" aria-controls="mailPop" aria-haspopup="menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+    <span class="dot" aria-hidden="true"></span>
+  </button>
+</div>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 <script>
@@ -1752,6 +1765,8 @@ window.addEventListener('load', function(){
 </script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
+  // Adresa de email este compusă din bucăți, ca să nu fie rescrisă/ascunsă de CDN-uri
+  var MAIL_ADDR = 'nextstarfit' + String.fromCharCode(64) + 'gmail.com';
   // Loader
   window.addEventListener('load', function(){ document.getElementById('loader').classList.add('hide'); });
 
@@ -2024,6 +2039,67 @@ document.addEventListener('DOMContentLoaded', function(){
     calcResult.classList.add('show');
   });
 
+
+  // Guard anti-obfuscare email: dacă un CDN a înlocuit adresa cu un placeholder, o punem la loc
+  (function fixObfuscatedEmail(){
+    var PLACEHOLDER = '[' + 'email' + ' protected]';
+    function repair(){
+      // linkuri rescrise de CDN către /cdn-cgi/l/email-protection
+      document.querySelectorAll('a[href*="email-protection"]').forEach(function(a){
+        a.setAttribute('href', 'mailto:' + MAIL_ADDR);
+      });
+      // texte înlocuite cu placeholder
+      var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+      var nodes = [], n;
+      while((n = walker.nextNode())){ if(n.nodeValue && n.nodeValue.indexOf(PLACEHOLDER) !== -1) nodes.push(n); }
+      nodes.forEach(function(node){ node.nodeValue = node.nodeValue.split(PLACEHOLDER).join(MAIL_ADDR); });
+      // atribute title / aria-label
+      document.querySelectorAll('[title], [aria-label]').forEach(function(el){
+        ['title','aria-label'].forEach(function(attr){
+          var v = el.getAttribute(attr);
+          if(v && v.indexOf(PLACEHOLDER) !== -1) el.setAttribute(attr, v.split(PLACEHOLDER).join(MAIL_ADDR));
+        });
+      });
+    }
+    repair();
+    setTimeout(repair, 400);
+    setTimeout(repair, 1500);
+  })();
+
+  // Mail FAB — popover funcțional
+  var mailFloat = document.getElementById('mailFloat');
+  var mailPop = document.getElementById('mailPop');
+  function setMailPop(open){
+    mailPop.classList.toggle('open', open);
+    mailPop.setAttribute('aria-hidden', open ? 'false' : 'true');
+    mailFloat.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  mailFloat.addEventListener('click', function(e){
+    e.stopPropagation();
+    setMailPop(!mailPop.classList.contains('open'));
+  });
+  document.addEventListener('click', function(e){
+    if(mailPop.classList.contains('open') && !mailPop.contains(e.target) && e.target !== mailFloat) setMailPop(false);
+  });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') setMailPop(false); });
+  mailPop.querySelectorAll('.mail-pop-item').forEach(function(item){
+    item.addEventListener('click', function(){ setMailPop(false); });
+  });
+  var mailCopy = document.getElementById('mailCopy');
+  if(mailCopy){
+    mailCopy.addEventListener('click', function(){
+      var addr = MAIL_ADDR;
+      function done(){
+        if(typeof showToast === 'function') showToast('success', 'Adresă copiată!', addr);
+      }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(addr).then(done).catch(function(){ window.location.href = 'mailto:' + addr; });
+      } else {
+        window.location.href = 'mailto:' + addr;
+      }
+    });
+  }
+
   // Testimonials — carusel responsive (1 / 2 / 3 carduri pe rând)
   var track = document.getElementById('testiTrack');
   var cards = Array.prototype.slice.call(track.children);
@@ -2220,7 +2296,7 @@ document.addEventListener('DOMContentLoaded', function(){
       }
     }).catch(function(){
       modalMsg.classList.add('error');
-      modalMsg.textContent = 'Nu am putut trimite solicitarea. Încearcă din nou sau scrie-ne la nextstarfit@gmail.com.';
+      modalMsg.textContent = 'Nu am putut trimite solicitarea. Încearcă din nou sau scrie-ne la ' + MAIL_ADDR + '.';
       modalMsg.style.display = 'block';
     }).then(function(){
       btn.disabled = false; btn.textContent = oldTxt;
@@ -2256,7 +2332,7 @@ document.addEventListener('DOMContentLoaded', function(){
       }
     }).catch(function(){
       formMsg.classList.add('error');
-      formMsg.textContent = 'Nu am putut trimite solicitarea. Încearcă din nou sau scrie-ne la nextstarfit@gmail.com.';
+      formMsg.textContent = 'Nu am putut trimite solicitarea. Încearcă din nou sau scrie-ne la ' + MAIL_ADDR + '.';
     }).then(function(){
       formMsg.style.display = 'block';
       cBtn.disabled = false; cBtn.textContent = cTxt;
@@ -2297,5 +2373,5 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 });
 </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a56441151f65e596',t:'MTc5Mzk2OTc0NA=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a56441151f65e596',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a5645a16bcea26cf',t:'MTc5Mzk3MDc2OA=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a5645a16bcea26cf',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
