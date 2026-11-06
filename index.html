@@ -2,8 +2,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEXTSTARFIT — Stronger Together | Fitness Center București</title>
-<meta name="description" content="NEXTSTARFIT Fitness Center — Stronger Together. Antrenamente moderne, planuri nutriționale, clase de grup. Nutriționist: Țecu Antonio. Strada Feroviarilor 37, 012206 București.">
+<title>NEXTSTARFIT - Stronger Together | Fitness Center București</title>
+<meta name="description" content="NEXTSTARFIT Fitness Center - Stronger Together. Antrenamente moderne, planuri nutriționale, clase de grup. Nutriționist: Țecu Antonio. Strada Feroviarilor 37, 012206 București.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -455,6 +455,12 @@ footer a,footer p,footer address,footer li{font-weight:400}
   .sched-row .sr{width:100%;justify-content:space-between}
   .sched-live{font-size:11.5px;padding:7px 12px}
 }
+.menu-line{margin:0;font-size:13.4px;line-height:1.6;color:var(--dark)}
+.menu-cell{display:flex;flex-direction:column}
+.menu-cell .mkcal{margin-top:auto;align-self:flex-start}
+.menu-cell-empty{background:#FAFBFC}
+.menu-cell-empty .menu-line{color:#B0B7C2}
+.mkcal-empty{background:#F1F5F9!important;color:#94A3B8!important}
 /* --- Weekly menu section --- */
 .section-menu{background:linear-gradient(180deg,#fff 0%,#F1F7FF 45%,#fff 100%)}
 .menu-card{background:#fff;border:1.5px solid var(--border);border-radius:22px;overflow:hidden;box-shadow:var(--shadow-lg)}
@@ -487,11 +493,6 @@ footer a,footer p,footer address,footer li{font-weight:400}
 .mf-tag{font-size:12.5px;font-weight:700;color:var(--dark)}
 .mf-tag b{color:var(--blue)}
 .mf-note{font-size:12px;color:var(--muted)}
-.menu-bens{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:22px}
-.menu-ben{background:#fff;border:1px solid var(--border);border-radius:14px;padding:16px 14px;text-align:center;display:grid;gap:8px;justify-items:center;transition:.3s}
-.menu-ben:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:rgba(18,144,255,.35)}
-.menu-ben .mb-ic{width:38px;height:38px;border-radius:11px;background:var(--blue-light);color:var(--blue);display:flex;align-items:center;justify-content:center}
-.menu-ben strong{font-size:12.5px;font-weight:700;color:var(--dark);line-height:1.3}
 .menu-cta{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:24px;background:#0B1119;color:#fff;border-radius:18px;padding:22px 26px;position:relative;overflow:hidden}
 .menu-cta::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:20px 20px;pointer-events:none}
 .menu-cta strong{display:block;font-family:var(--font-head);font-weight:900;font-style:italic;font-size:17px;margin-bottom:4px;position:relative}
@@ -511,8 +512,6 @@ footer a,footer p,footer address,footer li{font-weight:400}
   .menu-cell{border:0;border-top:1px solid var(--border-light);border-radius:0;background:#fff;padding:12px 16px}
   .menu-row:nth-child(even) .menu-cell{background:#fff}
   .mcl{display:block}
-  .menu-bens{grid-template-columns:repeat(2,1fr)}
-  .menu-ben:last-child{grid-column:1/-1}
   .menu-personal .mp-line{display:none}
 }
 @media(max-width:639px){
@@ -999,7 +998,7 @@ footer a,footer p,footer address,footer li{font-weight:400}
           <button class="btn btn-dark btn-block" type="button" data-open-modal="PremiumElevi"><span class="btn-label">Alege Premium Elevi</span><span class="btn-price">600 lei / 1 lună</span></button>
         </div>
       </div>
-      <p style="text-align:center;margin-top:26px;font-size:13.5px;color:var(--muted)">Prețurile afișate sunt finale. Abonamentele de 3 luni și 6 luni au preț mai bun pe lună. Scrie-ne la <a href="/cdn-cgi/l/email-protection#58363d202c2b2c392a3e312c7e7b6e6c633f35393134763b3735" style="color:var(--blue);font-weight:700">nextstarfit&#64;gmail.com</a> pentru activare rapidă.</p>
+      <p style="text-align:center;margin-top:26px;font-size:13.5px;color:var(--muted)">Prețurile afișate sunt finale. Abonamentele de 3 luni și 6 luni au preț mai bun pe lună. Scrie-ne la <a href="/cdn-cgi/l/email-protection#711f14090502051003171805575247454a161c10181d5f121e1c" style="color:var(--blue);font-weight:700">nextstarfit&#64;gmail.com</a> pentru activare rapidă.</p>
     </div>
   </section>
   <section class="section" id="nutritie">
@@ -1084,7 +1083,7 @@ footer a,footer p,footer address,footer li{font-weight:400}
         <p>Meniu echilibrat, cu calorii calculate pentru fiecare masă — creat de <strong style="color:var(--dark)">Nutriționistul Țecu Antonio</strong> și inclus în abonamentele <strong style="color:var(--dark)">Cu nutriție</strong> și <strong style="color:var(--dark)">Premium</strong>.</p>
       </div>
       <div class="menu-sum reveal">
-        <span class="ms-chip"><b>≈ 1.620</b> kcal / zi (medie)</span>
+        <span class="ms-chip"><b>≈ 1.560</b> kcal / zi (medie)</span>
         <span class="ms-chip"><b>4</b> mese pe zi</span>
         <span class="ms-chip"><b>7</b> zile gata planificate</span>
         <span class="ms-chip"><b>kcal</b> afișate pentru fiecare aliment</span>
@@ -1127,22 +1126,22 @@ footer a,footer p,footer address,footer li{font-weight:400}
             <div class="menu-day"><span class="md-name">Luni</span><span class="md-kcal">≈ 1.645 kcal</span></div>
             <div class="menu-cell">
               <span class="mcl">Mic dejun · ≈ 425 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">3 ouă</span><span class="mi-k">220</span></li><li><span class="mi-t">2 felii pâine integrală</span><span class="mi-k">180</span></li><li><span class="mi-t">Roșii</span><span class="mi-k">25</span></li></ul>
+              <p class="menu-line">3 ouă + 2 felii pâine integrală + roșii</p>
               <span class="mkcal">≈ 425 kcal</span>
             </div>
             <div class="menu-cell">
               <span class="mcl">Prânz · ≈ 420 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">180 g piept de pui</span><span class="mi-k">200</span></li><li><span class="mi-t">150 g orez</span><span class="mi-k">200</span></li><li><span class="mi-t">Salată</span><span class="mi-k">20</span></li></ul>
+              <p class="menu-line">180 g piept de pui + 150 g orez + salată</p>
               <span class="mkcal">≈ 420 kcal</span>
             </div>
             <div class="menu-cell">
               <span class="mcl">Gustare · ≈ 245 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">200 g iaurt grecesc</span><span class="mi-k">160</span></li><li><span class="mi-t">Un măr</span><span class="mi-k">85</span></li></ul>
+              <p class="menu-line">200 g iaurt grecesc + un măr</p>
               <span class="mkcal">≈ 245 kcal</span>
             </div>
             <div class="menu-cell">
               <span class="mcl">Cină · ≈ 555 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">180 g pește</span><span class="mi-k">210</span></li><li><span class="mi-t">250 g cartofi copți</span><span class="mi-k">300</span></li><li><span class="mi-t">Legume</span><span class="mi-k">45</span></li></ul>
+              <p class="menu-line">180 g pește + 250 g cartofi copți + legume</p>
               <span class="mkcal">≈ 555 kcal</span>
             </div>
           </div>
@@ -1150,22 +1149,22 @@ footer a,footer p,footer address,footer li{font-weight:400}
             <div class="menu-day"><span class="md-name">Marți</span><span class="md-kcal">≈ 1.565 kcal</span></div>
             <div class="menu-cell">
               <span class="mcl">Mic dejun · ≈ 495 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">60 g ovăz</span><span class="mi-k">230</span></li><li><span class="mi-t">200 g iaurt grecesc</span><span class="mi-k">160</span></li><li><span class="mi-t">Banană</span><span class="mi-k">105</span></li></ul>
+              <p class="menu-line">60 g ovăz + 200 g iaurt grecesc + banană</p>
               <span class="mkcal">≈ 495 kcal</span>
             </div>
             <div class="menu-cell">
               <span class="mcl">Prânz · ≈ 375 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">180 g curcan</span><span class="mi-k">195</span></li><li><span class="mi-t">150 g cartofi</span><span class="mi-k">160</span></li><li><span class="mi-t">Salată</span><span class="mi-k">20</span></li></ul>
+              <p class="menu-line">180 g curcan + 150 g cartofi + salată</p>
               <span class="mkcal">≈ 375 kcal</span>
             </div>
             <div class="menu-cell">
               <span class="mcl">Gustare · ≈ 210 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">150 g brânză cottage</span><span class="mi-k">150</span></li><li><span class="mi-t">Fructe de pădure</span><span class="mi-k">60</span></li></ul>
+              <p class="menu-line">150 g brânză cottage + fructe de pădure</p>
               <span class="mkcal">≈ 210 kcal</span>
             </div>
             <div class="menu-cell">
               <span class="mcl">Cină · ≈ 485 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">2 ouă</span><span class="mi-k">145</span></li><li><span class="mi-t">150 g ton</span><span class="mi-k">190</span></li><li><span class="mi-t">Salată</span><span class="mi-k">20</span></li><li><span class="mi-t">1–2 felii pâine integrală</span><span class="mi-k">130</span></li></ul>
+              <p class="menu-line">2 ouă + 150 g ton + salată + 1–2 felii pâine integrală</p>
               <span class="mkcal">≈ 485 kcal</span>
             </div>
           </div>
@@ -1173,22 +1172,22 @@ footer a,footer p,footer address,footer li{font-weight:400}
             <div class="menu-day"><span class="md-name">Miercuri</span><span class="md-kcal">≈ 1.695 kcal</span></div>
             <div class="menu-cell">
               <span class="mcl">Mic dejun · ≈ 400 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">Omletă din 3 ouă</span><span class="mi-k">250</span></li><li><span class="mi-t">30 g brânză</span><span class="mi-k">105</span></li><li><span class="mi-t">Legume</span><span class="mi-k">45</span></li></ul>
+              <p class="menu-line">Omletă din 3 ouă + 30 g brânză + legume</p>
               <span class="mkcal">≈ 400 kcal</span>
             </div>
             <div class="menu-cell">
               <span class="mcl">Prânz · ≈ 440 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">180 g pui</span><span class="mi-k">200</span></li><li><span class="mi-t">150 g orez</span><span class="mi-k">200</span></li><li><span class="mi-t">Broccoli</span><span class="mi-k">40</span></li></ul>
+              <p class="menu-line">180 g pui + 150 g orez + broccoli</p>
               <span class="mkcal">≈ 440 kcal</span>
             </div>
             <div class="menu-cell">
               <span class="mcl">Gustare · ≈ 225 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">Iaurt grecesc</span><span class="mi-k">120</span></li><li><span class="mi-t">Banană</span><span class="mi-k">105</span></li></ul>
+              <p class="menu-line">Iaurt grecesc + banană</p>
               <span class="mkcal">≈ 225 kcal</span>
             </div>
             <div class="menu-cell">
               <span class="mcl">Cină · ≈ 630 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">180 g somon</span><span class="mi-k">375</span></li><li><span class="mi-t">Legume</span><span class="mi-k">45</span></li><li><span class="mi-t">200 g cartofi</span><span class="mi-k">210</span></li></ul>
+              <p class="menu-line">180 g somon + legume + 200 g cartofi</p>
               <span class="mkcal">≈ 630 kcal</span>
             </div>
           </div>
@@ -1196,22 +1195,22 @@ footer a,footer p,footer address,footer li{font-weight:400}
             <div class="menu-day"><span class="md-name">Joi</span><span class="md-kcal">≈ 1.690 kcal</span></div>
             <div class="menu-cell">
               <span class="mcl">Mic dejun · ≈ 500 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">60 g ovăz</span><span class="mi-k">230</span></li><li><span class="mi-t">Lapte / iaurt</span><span class="mi-k">95</span></li><li><span class="mi-t">Fruct</span><span class="mi-k">75</span></li><li><span class="mi-t">15 g nuci</span><span class="mi-k">100</span></li></ul>
+              <p class="menu-line">60 g ovăz + lapte/iaurt + fruct + 15 g nuci</p>
               <span class="mkcal">≈ 500 kcal</span>
             </div>
             <div class="menu-cell">
               <span class="mcl">Prânz · ≈ 520 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">180 g carne slabă de vită</span><span class="mi-k">300</span></li><li><span class="mi-t">150 g orez</span><span class="mi-k">200</span></li><li><span class="mi-t">Salată</span><span class="mi-k">20</span></li></ul>
+              <p class="menu-line">180 g carne slabă de vită + 150 g orez + salată</p>
               <span class="mkcal">≈ 520 kcal</span>
             </div>
             <div class="menu-cell">
               <span class="mcl">Gustare · ≈ 220 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">2 ouă fierte</span><span class="mi-k">145</span></li><li><span class="mi-t">Un fruct</span><span class="mi-k">75</span></li></ul>
+              <p class="menu-line">2 ouă fierte + un fruct</p>
               <span class="mkcal">≈ 220 kcal</span>
             </div>
             <div class="menu-cell">
               <span class="mcl">Cină · ≈ 450 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">180 g pui</span><span class="mi-k">200</span></li><li><span class="mi-t">Legume la tigaie</span><span class="mi-k">70</span></li><li><span class="mi-t">Cartof dulce</span><span class="mi-k">180</span></li></ul>
+              <p class="menu-line">180 g pui + legume la tigaie + cartof dulce</p>
               <span class="mkcal">≈ 450 kcal</span>
             </div>
           </div>
@@ -1219,83 +1218,76 @@ footer a,footer p,footer address,footer li{font-weight:400}
             <div class="menu-day"><span class="md-name">Vineri</span><span class="md-kcal">≈ 1.560 kcal</span></div>
             <div class="menu-cell">
               <span class="mcl">Mic dejun · ≈ 445 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">3 ouă</span><span class="mi-k">220</span></li><li><span class="mi-t">2 felii pâine integrală</span><span class="mi-k">180</span></li><li><span class="mi-t">Legume</span><span class="mi-k">45</span></li></ul>
+              <p class="menu-line">3 ouă + 2 felii pâine integrală + legume</p>
               <span class="mkcal">≈ 445 kcal</span>
             </div>
             <div class="menu-cell">
               <span class="mcl">Prânz · ≈ 455 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">180 g curcan</span><span class="mi-k">195</span></li><li><span class="mi-t">150 g paste integrale</span><span class="mi-k">215</span></li><li><span class="mi-t">Sos de roșii</span><span class="mi-k">45</span></li></ul>
+              <p class="menu-line">180 g curcan + 150 g paste integrale + sos de roșii</p>
               <span class="mkcal">≈ 455 kcal</span>
             </div>
             <div class="menu-cell">
               <span class="mcl">Gustare · ≈ 235 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">200 g iaurt grecesc</span><span class="mi-k">160</span></li><li><span class="mi-t">Fruct</span><span class="mi-k">75</span></li></ul>
+              <p class="menu-line">200 g iaurt grecesc + fruct</p>
               <span class="mkcal">≈ 235 kcal</span>
             </div>
             <div class="menu-cell">
               <span class="mcl">Cină · ≈ 425 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">180 g pește alb</span><span class="mi-k">195</span></li><li><span class="mi-t">200–250 g cartofi</span><span class="mi-k">210</span></li><li><span class="mi-t">Salată</span><span class="mi-k">20</span></li></ul>
+              <p class="menu-line">180 g pește alb + 200–250 g cartofi + salată</p>
               <span class="mkcal">≈ 425 kcal</span>
             </div>
           </div>
           <div class="menu-row reveal">
-            <div class="menu-day"><span class="md-name">Sâmbătă</span><span class="md-kcal">≈ 1.680 kcal</span></div>
+            <div class="menu-day"><span class="md-name">Sâmbătă</span><span class="md-kcal">≈ 1.720 kcal</span></div>
             <div class="menu-cell">
               <span class="mcl">Mic dejun · ≈ 550 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">60 g ovăz</span><span class="mi-k">230</span></li><li><span class="mi-t">Iaurt grecesc</span><span class="mi-k">120</span></li><li><span class="mi-t">Banană</span><span class="mi-k">105</span></li><li><span class="mi-t">15 g unt de arahide</span><span class="mi-k">95</span></li></ul>
+              <p class="menu-line">60 g ovăz + iaurt grecesc + banană + 15 g unt de arahide</p>
               <span class="mkcal">≈ 550 kcal</span>
             </div>
             <div class="menu-cell">
               <span class="mcl">Prânz · ≈ 450 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">180–200 g pui</span><span class="mi-k">205</span></li><li><span class="mi-t">150 g orez</span><span class="mi-k">200</span></li><li><span class="mi-t">Legume</span><span class="mi-k">45</span></li></ul>
+              <p class="menu-line">180–200 g pui + 150 g orez + legume</p>
               <span class="mkcal">≈ 450 kcal</span>
             </div>
             <div class="menu-cell">
-              <span class="mcl">Gustare · ≈ 185 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">Brânză cottage</span><span class="mi-k">110</span></li><li><span class="mi-t">Fruct</span><span class="mi-k">75</span></li></ul>
-              <span class="mkcal">≈ 185 kcal</span>
+              <span class="mcl">Gustare · ≈ 225 kcal</span>
+              <p class="menu-line">Brânză cottage + fruct</p>
+              <span class="mkcal">≈ 225 kcal</span>
             </div>
             <div class="menu-cell">
               <span class="mcl">Cină · ≈ 495 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">180 g vită slabă</span><span class="mi-k">290</span></li><li><span class="mi-t">Legume</span><span class="mi-k">45</span></li><li><span class="mi-t">150 g cartofi</span><span class="mi-k">160</span></li></ul>
+              <p class="menu-line">180 g vită slabă + legume + 150 g cartofi</p>
               <span class="mkcal">≈ 495 kcal</span>
             </div>
           </div>
           <div class="menu-row reveal">
-            <div class="menu-day"><span class="md-name">Duminică</span><span class="md-kcal">≈ 1.495 kcal</span></div>
+            <div class="menu-day"><span class="md-name">Duminică</span><span class="md-kcal">≈ 1.030 kcal</span></div>
             <div class="menu-cell">
               <span class="mcl">Mic dejun · ≈ 385 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">Omletă 3 ouă</span><span class="mi-k">250</span></li><li><span class="mi-t">Pâine integrală</span><span class="mi-k">90</span></li><li><span class="mi-t">Legume</span><span class="mi-k">45</span></li></ul>
+              <p class="menu-line">Omletă 3 ouă + pâine integrală + legume</p>
               <span class="mkcal">≈ 385 kcal</span>
             </div>
             <div class="menu-cell">
               <span class="mcl">Prânz · ≈ 420 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">180 g pui / curcan</span><span class="mi-k">200</span></li><li><span class="mi-t">150 g orez</span><span class="mi-k">200</span></li><li><span class="mi-t">Salată</span><span class="mi-k">20</span></li></ul>
+              <p class="menu-line">180 g pui/curcan + 150 g orez + salată</p>
               <span class="mkcal">≈ 420 kcal</span>
             </div>
             <div class="menu-cell">
               <span class="mcl">Gustare · ≈ 225 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">Iaurt grecesc</span><span class="mi-k">120</span></li><li><span class="mi-t">Banană</span><span class="mi-k">105</span></li></ul>
+              <p class="menu-line">Iaurt grecesc + banană</p>
               <span class="mkcal">≈ 225 kcal</span>
             </div>
-            <div class="menu-cell">
-              <span class="mcl">Cină · ≈ 465 kcal</span>
-              <ul class="menu-list"><li><span class="mi-t">180 g pește</span><span class="mi-k">210</span></li><li><span class="mi-t">Legume</span><span class="mi-k">45</span></li><li><span class="mi-t">200 g cartofi</span><span class="mi-k">210</span></li></ul>
-              <span class="mkcal">≈ 465 kcal</span>
+            <div class="menu-cell menu-cell-empty">
+              <span class="mcl">Cină</span>
+              <p class="menu-line">—</p>
+              <span class="mkcal mkcal-empty">masă liberă</span>
             </div>
           </div>
         </div>
         <div class="menu-foot">
           <span class="mf-tag">Meniu creat de <b>Nutriționistul Țecu Antonio</b></span>
-          <span class="mf-note">Kcal sunt orientative, calculate pe porțiunile din tabel, și se ajustează la evaluarea corporală.</span>
+          <span class="mf-note">Kcal sunt orientative, calculate pe porțiunile din tabel. Duminică are 3 mese în plan — cina rămâne liberă sau se completează la evaluarea corporală.</span>
         </div>
-      </div>
-      <div class="menu-bens">
-        <div class="menu-ben reveal"><span class="mb-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9v6M8 7v10M16 7v10M20 9v6M8 12h8"/></svg></span><strong>Susține masa musculară</strong></div>
-        <div class="menu-ben reveal"><span class="mb-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 5 13h6l-1 9 8-11h-6z"/></svg></span><strong>Oferă energie constantă</strong></div>
-        <div class="menu-ben reveal"><span class="mb-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 1 0-7.1 7.1L12 21l8.8-8.3a5 5 0 0 0 0-7.1z"/></svg></span><strong>Îmbunătățește sănătatea</strong></div>
-        <div class="menu-ben reveal"><span class="mb-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M7 6l1.8 2.4M17 6l-1.8 2.4"/><path d="M5.5 12h13l-1.2 5.5a4 4 0 0 1-3.9 3.1h-2.8a4 4 0 0 1-3.9-3.1z"/></svg></span><strong>Ajută la controlul greutății</strong></div>
-        <div class="menu-ben reveal"><span class="mb-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 3.5a3 3 0 0 0-3 3 3 3 0 0 0-1.5 5.5A3 3 0 0 0 6.5 18a3 3 0 0 0 5.5 1.6V3.9a3 3 0 0 0-2.5-.4z"/><path d="M14.5 3.5a3 3 0 0 1 3 3 3 3 0 0 1 1.5 5.5A3 3 0 0 1 17.5 18a3 3 0 0 1-5.5 1.6"/></svg></span><strong>Optimizează performanța</strong></div>
       </div>
       <div class="menu-cta reveal">
         <div>
@@ -1466,7 +1458,7 @@ footer a,footer p,footer address,footer li{font-weight:400}
           <button class="faq-q" type="button">Cum mă înscriu la un abonament?
             <span class="plus">+</span>
           </button>
-          <div class="faq-a"><p>Alegi abonamentul și durata dorită (1, 3 sau 6 luni) și completezi formularul de contact, scrii la <a href="/cdn-cgi/l/email-protection#600e05181413140112060914464356545b070d01090c4e030f0d" style="color:var(--blue);font-weight:700">nextstarfit&#64;gmail.com</a> sau vii direct la recepție. Îți confirmăm în maximum 24h și primești evaluarea corporală gratuit la prima vizită.</p></div>
+          <div class="faq-a"><p>Alegi abonamentul și durata dorită (1, 3 sau 6 luni) și completezi formularul de contact, scrii la <a href="/cdn-cgi/l/email-protection#3759524f4344435645515e43111401030c505a565e5b1954585a" style="color:var(--blue);font-weight:700">nextstarfit&#64;gmail.com</a> sau vii direct la recepție. Îți confirmăm în maximum 24h și primești evaluarea corporală gratuit la prima vizită.</p></div>
         </div>
         <div class="faq-item">
           <button class="faq-q" type="button">Ce include abonamentul Standard?
@@ -1484,7 +1476,7 @@ footer a,footer p,footer address,footer li{font-weight:400}
           <button class="faq-q" type="button">Pot veni la o vizită gratuită?
             <span class="plus">+</span>
           </button>
-          <div class="faq-a"><p>Da! Prima vizită + evaluarea corporală sunt gratuite. Completează formularul din popup sau scrie-ne la <a href="/cdn-cgi/l/email-protection#fb959e838f888f9a899d928fddd8cdcfc09c969a9297d5989496" style="color:var(--blue);font-weight:700">nextstarfit&#64;gmail.com</a>.</p></div>
+          <div class="faq-a"><p>Da! Prima vizită + evaluarea corporală sunt gratuite. Completează formularul din popup sau scrie-ne la <a href="/cdn-cgi/l/email-protection#adc3c8d5d9ded9ccdfcbc4d98b8e9b9996cac0ccc4c183cec2c0" style="color:var(--blue);font-weight:700">nextstarfit&#64;gmail.com</a>.</p></div>
         </div>
       </div>
     </div>
@@ -1502,13 +1494,13 @@ footer a,footer p,footer address,footer li{font-weight:400}
             <span class="ic">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
             </span>
-            <span><strong>Email — scrie-ne acum</strong><a class="big" href="/cdn-cgi/l/email-protection#2e404b565a5d5a4f5c48475a080d181a1549434f4742004d4143">nextstarfit&#64;gmail.com</a><br><a href="/cdn-cgi/l/email-protection#533d362b2720273221353a277570656768343e323a3f7d303c3e">nextstarfit&#64;gmail.com</a><span> — Toate solicitările online ajung direct pe emailul NEXTSTARFIT. Răspundem în maximum 24h.</span></span>
+            <span><strong>Email — scrie-ne acum</strong><a class="big" href="/cdn-cgi/l/email-protection#d0beb5a8a4a3a4b1a2b6b9a4f6f3e6e4ebb7bdb1b9bcfeb3bfbd">nextstarfit&#64;gmail.com</a><br><a href="/cdn-cgi/l/email-protection#9bf5fee3efe8effae9fdf2efbdb8adafa0fcf6faf2f7b5f8f4f6">nextstarfit&#64;gmail.com</a><span> — Toate solicitările online ajung direct pe emailul NEXTSTARFIT. Răspundem în maximum 24h.</span></span>
           </div>
           <div class="info-card contact-highlight">
             <span class="ic">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
             </span>
-            <span><strong>Nutriționist dedicat</strong><a class="big" href="/cdn-cgi/l/email-protection#b7d9d2cfc3c4c3d6c5d1dec3919481838cd0dad6dedb99d4d8da">Țecu Antonio</a><span>Nutriție sportivă • 8 ani experiență • planuri personalizate</span></span>
+            <span><strong>Nutriționist dedicat</strong><a class="big" href="/cdn-cgi/l/email-protection#09676c717d7a7d687b6f607d2f2a3f3d326e64686065276a6664">Țecu Antonio</a><span>Nutriție sportivă • 8 ani experiență • planuri personalizate</span></span>
           </div>
           <div class="info-card">
             <span class="ic">
@@ -1593,7 +1585,7 @@ footer a,footer p,footer address,footer li{font-weight:400}
         <p>Programează o vizită gratuită, iar solicitarea va fi trimisă direct către NEXTSTARFIT.</p>
         <div class="cta-actions">
           <button class="btn btn-primary" type="button" data-open-modal="vizita">Programează o vizită gratuită</button>
-          <a href="/cdn-cgi/l/email-protection#e38d869b9790978291858a97c5c0d5d7d8848e828a8fcd808c8e" class="btn btn-secondary">Scrie-ne pe email</a>
+          <a href="/cdn-cgi/l/email-protection#fb959e838f888f9a899d928fddd8cdcfc09c969a9297d5989496" class="btn btn-secondary">Scrie-ne pe email</a>
         </div>
       </div>
     </div>
@@ -1639,7 +1631,7 @@ footer a,footer p,footer address,footer li{font-weight:400}
         <li><a href="#servicii">Program clase</a></li>
         <li><a href="#testimoniale">Testimoniale</a></li>
         <li><a href="#contact">Contact &amp; Vizită</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#29474c515d5a5d485b4f405d0f0a1f1d124e44484045074a4644">nextstarfit&#64;gmail.com</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#94faf1ece0e7e0f5e6f2fde0b2b7a2a0aff3f9f5fdf8baf7fbf9">nextstarfit&#64;gmail.com</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -1714,7 +1706,7 @@ footer a,footer p,footer address,footer li{font-weight:400}
 <button id="toTop" aria-label="Înapoi sus">↑</button>
 <div class="mail-fab" id="mailFab">
   <div class="mail-pop" id="mailPop" role="menu" aria-label="Opțiuni de contact" aria-hidden="true">
-    <a class="mail-pop-item" role="menuitem" href="/cdn-cgi/l/email-protection#c1afa4b9b5b2b5a0b3a7a8b5e7e2f7f5faa6aca0a8adefa2aeacfeb2b4a3aba4a2b5fce7e2f3f1f7faafb5b3a4a3a0b3a4e4f3f18f84999592958093878895e7a3aea5b8fc92a0adb4b5e4f382e4f3f1a0e482f9e4f8f8e4f3f1b7b3a4a0e4f3f1aca0a8e4f3f1acb4adb5a4e4f3f1a5a4b5a0ada8a8e4f3f1a5a4b2b1b3a4e4f3f1a0a3aeafa0aca4afb5a4ef">
+    <a class="mail-pop-item" role="menuitem" href="/cdn-cgi/l/email-protection#e58b809d9196918497838c91c3c6d3d1de8288848c89cb868a88da9690878f808691d8c3c6d7d5d3de8b91978087849780c0d7d5aba0bdb1b6b1a4b7a3acb1c3878a819cd8b684899091c0d7a6c0d7d584c0a6ddc0dcdcc0d7d593978084c0d7d588848cc0d7d58890899180c0d7d581809184898c8cc0d7d5818096959780c0d7d584878a8b8488808b9180cb">
       <span class="mpi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></span>
       <span><strong>Trimite email</strong><small>nextstarfit&#64;gmail.com</small></span>
     </a>
@@ -2373,5 +2365,5 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 });
 </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a5645a16bcea26cf',t:'MTc5Mzk3MDc2OA=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a5645a16bcea26cf',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a56504d1b8883fd9',t:'MTc5Mzk3Nzc2MQ=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a56504d1b8883fd9',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
