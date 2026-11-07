@@ -1561,7 +1561,7 @@ document.addEventListener('DOMContentLoaded', function(){
   // (ancorată la un epoch fix) - rezultatul e practic identic.
   (function(){
     var CYCLE = (1*24 + 12) * 60 * 60 * 1000;            // 36 h
-    var EPOCH = Date.UTC(2025, 0, 1, 0, 0, 0);           // ancoră fixă, aceeași ca în api/time.js
+    var EPOCH = 1794086331817;           // ancoră fixă, aceeași ca în api/time.js
     var cdD = document.getElementById('cdD'), cdH = document.getElementById('cdH'),
         cdM = document.getElementById('cdM'), cdS = document.getElementById('cdS');
     if(!cdD) return;
