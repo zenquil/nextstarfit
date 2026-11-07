@@ -4,7 +4,7 @@
 // deci numărătoarea e identică pe orice dispozitiv și nu poate fi păcălită din ceasul local.
 
 const CYCLE_MS = (1 * 24 + 12) * 60 * 60 * 1000;        // 36 h = valoarea inițială a ciclului
-const EPOCH_MS = 1794086331817       // ancoră fixă (1 ian. 2025, 00:00 UTC)
+const EPOCH_MS = 1794086331817;       // ancoră fixă (1 ian. 2025, 00:00 UTC)
 
 module.exports = function handler(req, res) {
   const now = Date.now();
