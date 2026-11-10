@@ -634,6 +634,7 @@ footer a,footer p,footer address,footer li{font-weight:400}
 }
 /* Layout sigur pentru telefoane și ecrane compacte */
 .quick-actions{display:contents}
+.quick-actions-backdrop{display:none}
 @media(max-width:1023px), (max-width:1200px) and (hover:none) and (pointer:coarse){
   .section-head .label{max-width:100%}
   .section-head .label::before,.section-head .label::after{flex:0 0 16px}
@@ -652,10 +653,16 @@ footer a,footer p,footer address,footer li{font-weight:400}
   .hero-right .float-dark > span:last-child,.hero-right-badge > span{min-width:0;overflow-wrap:break-word}
   .hero-right-badge{position:relative;inset:auto;width:100%;flex-shrink:0}
   .stripes-bottom{display:none}
-  .quick-actions{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;max-width:1200px;margin:0 auto;padding:0 22px 24px}
-  #toTop,#toTop.show{position:static;width:44px;height:44px;flex:0 0 44px;opacity:1;visibility:visible;transform:none}
-  .mail-fab{position:static;width:min(280px,calc(100% - 56px));max-width:calc(100% - 56px);scroll-margin:80px 0 12px}
-  .mail-pop{display:none;width:100%;opacity:1;visibility:visible;transform:none}
+  /* Acțiunile rapide rămân în colțurile ecranului pe mobil. */
+  html{scroll-padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))}
+  footer{padding-bottom:calc(80px + env(safe-area-inset-bottom,0px))}
+  .quick-actions{position:fixed;left:0;right:0;bottom:0;z-index:1250;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;max-width:none;margin:0;padding:0 calc(12px + env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) calc(12px + env(safe-area-inset-left,0px));pointer-events:none;isolation:isolate}
+  .quick-actions-backdrop{display:block;position:absolute;z-index:-1;left:0;right:0;bottom:0;height:calc(80px + env(safe-area-inset-bottom,0px));background:#080E16;border-top:1px solid rgba(255,255,255,.1);box-shadow:0 -6px 20px rgba(7,11,17,.12);pointer-events:auto}
+  #toTop,#toTop.show{position:static;width:44px;height:44px;flex:0 0 44px;opacity:1;visibility:visible;transform:none;pointer-events:auto}
+  .mail-fab{position:static;width:min(280px,calc(100% - 56px));max-width:calc(100% - 56px);gap:20px;pointer-events:none}
+  #mailFloat,.mail-pop{pointer-events:auto}
+  #mailFloat:hover{transform:none}
+  .mail-pop{display:none;width:100%;opacity:1;visibility:visible;transform:none;transition:none}
   .mail-pop.open{display:grid;max-height:min(240px,calc(100vh - 152px));overflow-y:auto;overscroll-behavior:contain}
   .mail-pop-item > span:last-child{min-width:0;overflow-wrap:anywhere}
 }
@@ -1099,7 +1106,7 @@ footer a,footer p,footer address,footer li{font-weight:400}
           <button class="btn btn-dark btn-block" type="button" data-open-modal="PremiumElevi"><span class="btn-label">Alege Premium Elevi</span><span class="btn-price">600 lei / 1 lună</span></button>
         </div>
       </div>
-      <p style="text-align:center;margin-top:26px;font-size:13.5px;color:var(--muted)">Prețurile afișate sunt finale. Abonamentele de 3 luni și 6 luni au preț mai bun pe lună. Scrie-ne la <a href="/cdn-cgi/l/email-protection#8ce2e9f4f8fff8edfeeae5f8aaafbab8b7ebe1ede5e0a2efe3e1" style="color:var(--blue);font-weight:700">nextstarfit&#64;gmail.com</a> pentru activare rapidă.</p>
+      <p style="text-align:center;margin-top:26px;font-size:13.5px;color:var(--muted)">Prețurile afișate sunt finale. Abonamentele de 3 luni și 6 luni au preț mai bun pe lună. Scrie-ne la <a href="/cdn-cgi/l/email-protection#b9d7dcc1cdcacdd8cbdfd0cd9f9a8f8d82ded4d8d0d597dad6d4" style="color:var(--blue);font-weight:700">nextstarfit&#64;gmail.com</a> pentru activare rapidă.</p>
     </div>
   </section>
   <section class="section" id="nutritie">
@@ -1403,7 +1410,7 @@ footer a,footer p,footer address,footer li{font-weight:400}
           <button class="faq-q" type="button">Cum mă înscriu la un abonament?
             <span class="plus">+</span>
           </button>
-          <div class="faq-a"><p>Alegi abonamentul și durata dorită (1, 3 sau 6 luni) și completezi formularul de contact, scrii la <a href="/cdn-cgi/l/email-protection#bfd1dac7cbcccbdecdd9d6cb999c898b84d8d2ded6d391dcd0d2" style="color:var(--blue);font-weight:700">nextstarfit&#64;gmail.com</a> sau vii direct la recepție. Îți confirmăm în maximum 24h și primești evaluarea corporală gratuit la prima vizită.</p></div>
+          <div class="faq-a"><p>Alegi abonamentul și durata dorită (1, 3 sau 6 luni) și completezi formularul de contact, scrii la <a href="/cdn-cgi/l/email-protection#640a011c1017100516020d10424752505f0309050d084a070b09" style="color:var(--blue);font-weight:700">nextstarfit&#64;gmail.com</a> sau vii direct la recepție. Îți confirmăm în maximum 24h și primești evaluarea corporală gratuit la prima vizită.</p></div>
         </div>
         <div class="faq-item">
           <button class="faq-q" type="button">Ce include abonamentul Standard?
@@ -1421,7 +1428,7 @@ footer a,footer p,footer address,footer li{font-weight:400}
           <button class="faq-q" type="button">Pot veni la o vizită gratuită?
             <span class="plus">+</span>
           </button>
-          <div class="faq-a"><p>Da! Prima vizită + evaluarea corporală sunt gratuite. Completează formularul din popup sau scrie-ne la <a href="/cdn-cgi/l/email-protection#86e8e3fef2f5f2e7f4e0eff2a0a5b0b2bde1ebe7efeaa8e5e9eb" style="color:var(--blue);font-weight:700">nextstarfit&#64;gmail.com</a>.</p></div>
+          <div class="faq-a"><p>Da! Prima vizită + evaluarea corporală sunt gratuite. Completează formularul din popup sau scrie-ne la <a href="/cdn-cgi/l/email-protection#523c372a2621263320343b267471646669353f333b3e7c313d3f" style="color:var(--blue);font-weight:700">nextstarfit&#64;gmail.com</a>.</p></div>
         </div>
       </div>
     </div>
@@ -1439,13 +1446,13 @@ footer a,footer p,footer address,footer li{font-weight:400}
             <span class="ic">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
             </span>
-            <span><strong>Email - scrie-ne acum</strong><a class="big" href="/cdn-cgi/l/email-protection#711f14090502051003171805575247454a161c10181d5f121e1c">nextstarfit&#64;gmail.com</a><br><span>Toate solicitările online ajung direct pe emailul NEXTSTARFIT. Răspundem în maximum 24h.</span></span>
+            <span><strong>Email - scrie-ne acum</strong><a class="big" href="/cdn-cgi/l/email-protection#94faf1ece0e7e0f5e6f2fde0b2b7a2a0aff3f9f5fdf8baf7fbf9">nextstarfit&#64;gmail.com</a><br><span>Toate solicitările online ajung direct pe emailul NEXTSTARFIT. Răspundem în maximum 24h.</span></span>
           </div>
           <div class="info-card contact-highlight">
             <span class="ic">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
             </span>
-            <span><strong>Nutriționist dedicat</strong><a class="big" href="/cdn-cgi/l/email-protection#6a040f121e191e0b180c031e4c495c5e510d070b030644090507">Țecu Antonio</a><br><span>Nutriție sportivă • 8 ani experiență • planuri personalizate</span></span>
+            <span><strong>Nutriționist dedicat</strong><a class="big" href="/cdn-cgi/l/email-protection#f39d968b8780879281959a87d5d0c5c7c8949e929a9fdd909c9e">Țecu Antonio</a><br><span>Nutriție sportivă • 8 ani experiență • planuri personalizate</span></span>
           </div>
           <div class="info-card">
             <span class="ic">
@@ -1537,7 +1544,7 @@ footer a,footer p,footer address,footer li{font-weight:400}
         <p>Programează o vizită gratuită, iar solicitarea va fi trimisă direct către NEXTSTARFIT.</p>
         <div class="cta-actions">
           <button class="btn btn-primary" type="button" data-open-modal="vizita">Programează o vizită gratuită</button>
-          <a href="/cdn-cgi/l/email-protection#dfb1baa7abacabbeadb9b6abf9fce9ebe4b8b2beb6b3f1bcb0b2" class="btn btn-secondary">Scrie-ne pe email</a>
+          <a href="/cdn-cgi/l/email-protection#bcd2d9c4c8cfc8ddcedad5c89a9f8a8887dbd1ddd5d092dfd3d1" class="btn btn-secondary">Scrie-ne pe email</a>
         </div>
       </div>
     </div>
@@ -1572,7 +1579,7 @@ footer a,footer p,footer address,footer li{font-weight:400}
         <li><a href="#servicii">Program clase</a></li>
         <li><a href="#testimoniale">Testimoniale</a></li>
         <li><a href="#contact">Contact &amp; Vizită</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#6f010a171b1c1b0e1d09061b494c595b5408020e0603410c0002">nextstarfit&#64;gmail.com</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#046a617c7077706576626d70222732303f6369656d682a676b69">nextstarfit&#64;gmail.com</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -1595,10 +1602,11 @@ footer a,footer p,footer address,footer li{font-weight:400}
     <p class="footer-consumer-note" id="solNotice">Platforma europeană SOL s-a închis în 2025. Sigla deschide lista actuală a entităților UE.</p>
   </div>
   <div class="quick-actions">
+<div class="quick-actions-backdrop" aria-hidden="true"></div>
 <button id="toTop" aria-label="Înapoi sus">↑</button>
 <div class="mail-fab" id="mailFab">
   <div class="mail-pop" id="mailPop" role="menu" aria-label="Opțiuni de contact" aria-hidden="true">
-    <a class="mail-pop-item" role="menuitem" href="/cdn-cgi/l/email-protection#0f616a777b7c7b6e7d69667b292c393b3468626e6663216c6062307c7a6d656a6c7b32292c3d3f3934617b7d6a6d6e7d6a2a3d3f414a575b5c5b4e5d49465b296d606b76325c6e637a7b2a3d4c2a3d3f6e2a4c372a36362a3d3f797d6a6e2a3d3f626e662a3d3f627a637b6a2a3d3f6b6a7b6e6366662a3d3f6b6a7c7f7d6a2a3d3f6e6d60616e626a617b6a21">
+    <a class="mail-pop-item" role="menuitem" href="/cdn-cgi/l/email-protection#9ff1fae7ebecebfeedf9f6ebb9bca9aba4f8f2fef6f3b1fcf0f2a0eceafdf5fafceba2b9bcadafa9a4f1ebedfafdfeedfabaadafd1dac7cbcccbdecdd9d6cbb9fdf0fbe6a2ccfef3eaebbaaddcbaadaffebadca7baa6a6baadafe9edfafebaadaff2fef6baadaff2eaf3ebfabaadaffbfaebfef3f6f6baadaffbfaecefedfabaadaffefdf0f1fef2faf1ebfab1">
       <span class="mpi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></span>
       <span><strong>Trimite email</strong><small>nextstarfit&#64;gmail.com</small></span>
     </a>
@@ -1845,13 +1853,31 @@ document.addEventListener('DOMContentLoaded', function(){
   // Mobile menu
   var burger = document.getElementById('burger');
   var mobileMenu = document.getElementById('mobileMenu');
+  function quickDockTop(){
+    var dock = document.querySelector('.quick-actions-backdrop');
+    return dock && getComputedStyle(dock).display !== 'none' ?
+      Math.max(0, Math.min(window.innerHeight, dock.getBoundingClientRect().top)) : window.innerHeight;
+  }
+  function scrollForQuickUI(distance){
+    if(distance <= 0.5) return;
+    var root = document.documentElement, previousBehavior = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';
+    window.scrollBy(0, Math.ceil(distance));
+    root.style.scrollBehavior = previousBehavior;
+  }
   function positionMobileMenu(){
-    var top = Math.max(0, Math.min(window.innerHeight, header.getBoundingClientRect().bottom));
+    var top = Math.max(0, Math.min(window.innerHeight, header.getBoundingClientRect().bottom + 1));
     mobileMenu.style.top = top + 'px';
-    mobileMenu.style.maxHeight = Math.max(0, window.innerHeight - top) + 'px';
+    mobileMenu.style.maxHeight = Math.max(0, quickDockTop() - top - 2) + 'px';
   }
   function setMobileMenu(open){
-    if(open) positionMobileMenu();
+    if(open){
+      var headerBox = header.getBoundingClientRect();
+      var room = quickDockTop() - headerBox.bottom;
+      scrollForQuickUI(Math.min(Math.max(0, headerBox.top), Math.max(0, 220 - room)));
+      positionMobileMenu();
+      mobileMenu.scrollTop = 0;
+    }
     burger.classList.toggle('open', open);
     mobileMenu.classList.toggle('open', open);
     burger.setAttribute('aria-expanded', open ? 'true' : 'false');
@@ -2334,14 +2360,45 @@ document.addEventListener('DOMContentLoaded', function(){
   // Mail FAB - popover funcțional
   var mailFloat = document.getElementById('mailFloat');
   var mailPop = document.getElementById('mailPop');
+  var mobileActions = window.matchMedia('(max-width:1023px), (max-width:1200px) and (hover:none) and (pointer:coarse)');
+  var mailLayoutPending = false;
+  function availableMailRoom(headerBottom){
+    var gap = parseFloat(getComputedStyle(mailFloat.parentElement).rowGap) || 0;
+    return mailFloat.getBoundingClientRect().top - gap - headerBottom - 8;
+  }
+  function makeRoomForMailPop(){
+    if(!mobileActions.matches) return;
+    var headerBox = header.getBoundingClientRect();
+    var room = availableMailRoom(headerBox.bottom);
+    var advance = Math.min(Math.max(0, headerBox.top), Math.max(0, 120 - room));
+    scrollForQuickUI(advance);
+  }
+  function fitMailPop(){
+    if(!mailPop.classList.contains('open')) return;
+    if(!mobileActions.matches){ mailPop.style.removeProperty('max-height'); return; }
+    var headerBox = header.getBoundingClientRect();
+    var headerBottom = Math.max(0, Math.min(window.innerHeight, headerBox.bottom));
+    var room = availableMailRoom(headerBottom);
+    if(room < 48 && headerBox.top > 0){ setMailPop(false); return; }
+    mailPop.style.maxHeight = Math.max(48, Math.min(240, room)) + 'px';
+  }
+  function scheduleMailLayout(){
+    if(!mailPop.classList.contains('open') || mailLayoutPending) return;
+    mailLayoutPending = true;
+    requestAnimationFrame(function(){ mailLayoutPending = false; fitMailPop(); });
+  }
   function setMailPop(open){
+    if(open && mobileActions.matches){
+      if(mobileMenu.classList.contains('open')) setMobileMenu(false);
+      makeRoomForMailPop();
+    }
     mailPop.classList.toggle('open', open);
     mailPop.setAttribute('aria-hidden', open ? 'false' : 'true');
     mailFloat.setAttribute('aria-expanded', open ? 'true' : 'false');
-    if(open && window.matchMedia('(max-width:1023px), (max-width:1200px) and (hover:none) and (pointer:coarse)').matches){
-      requestAnimationFrame(function(){ mailFloat.parentElement.scrollIntoView({block:'nearest', behavior:'smooth'}); });
-    }
+    if(open){ mailPop.scrollTop = 0; fitMailPop(); } else mailPop.style.removeProperty('max-height');
   }
+  window.addEventListener('resize', scheduleMailLayout);
+  window.addEventListener('scroll', scheduleMailLayout, {passive:true});
   mailFloat.addEventListener('click', function(e){
     e.stopPropagation();
     setMailPop(!mailPop.classList.contains('open'));
@@ -2631,7 +2688,11 @@ document.addEventListener('DOMContentLoaded', function(){
   window.addEventListener('scroll', function(){
     if(window.scrollY > 600) toTop.classList.add('show'); else toTop.classList.remove('show');
   });
-  toTop.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+  toTop.addEventListener('click', function(){
+    if(mobileMenu.classList.contains('open')) setMobileMenu(false);
+    if(mailPop.classList.contains('open')) setMailPop(false);
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
 
   // Reveal
   var revealEls = document.querySelectorAll('.reveal');
@@ -3847,5 +3908,5 @@ document.addEventListener('DOMContentLoaded', function(){
   window.__menuPdfUrl = url;
 })();
 </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a5859d420faae463',t:'MTc5NDMxOTU0OQ=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a5859d420faae463',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a585c625fa1c0531',t:'MTc5NDMyMTIyNA=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a585c625fa1c0531',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
